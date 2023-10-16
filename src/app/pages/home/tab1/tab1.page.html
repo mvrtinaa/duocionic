@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button value="inicio" checked>
+        Inicio
+      </ion-segment-button>
+      <ion-segment-button value="clase">
+        Clase
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<app-qr></app-qr>
+
+<app-logout-button (logoutClicked)="onLogoutClick()"></app-logout-button>
+
+<style>
+  /* Definir la animación de parpadeo */
+  @keyframes parpadeo {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  /* Aplicar la animación a la clase "parpadeo" */
+  .parpadeo {
+    animation: parpadeo 2s infinite;
+  }
+</style>

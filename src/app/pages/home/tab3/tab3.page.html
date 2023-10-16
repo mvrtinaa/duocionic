@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Foro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+
+    <app-foro class="foro"></app-foro>
+
+
+</ion-content>
+
+<app-logout-button (logoutClicked)="onLogoutClick()"></app-logout-button>

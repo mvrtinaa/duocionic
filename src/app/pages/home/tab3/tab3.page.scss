@@ -1,0 +1,67 @@
+/* Estilos CSS personalizados en tu archivo de hojas de estilo CSS */
+.text-center {
+    text-align: center; /* Centra el texto horizontalmente */
+  }
+  
+  .bordered-container {
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Ajustes adicionales para dispositivos móviles */
+  @media (max-width: 767px) {
+    .bordered-container {
+      padding: 5px; /* Reducir el espaciado interior en dispositivos móviles */
+    }
+  }
+
+.tab3 {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      150xp,
+      1fr
+    )
+  );
+  gap: 16px;
+}
+
+ion-title {
+  font-size: 24px; 
+  font-weight: bold; 
+  color: #333; 
+}
+
+ion-card-title {
+  font-weight: bold; 
+  font-size: 16px; 
+}
+
+ion-button {
+  border: 2px solid #333; 
+  border-radius: 5px; 
+  background-color: #fff; 
+  color: #333; 
+  font-weight: bold; 
+}
+
+.publicador-text {
+  color: #007bff;
+}
+
+ion-button {
+  color: #007bff;
+}
+/* Estilo para los botones con fondo personalizado */
+.custom-button {
+  background-color: #007bff; /* Color de fondo personalizado, el mismo que el del texto "Publicador" */
+  color: #fff; /* Color de texto en blanco */
+}
+
+/* Aplicar estilo a los botones específicos */
+.custom-button ion-button {
+  --background: #007bff; /* Color de fondo personalizado, el mismo que el del texto "Publicador" */
+  --color: #fff; /* Color de texto en blanco */
+}

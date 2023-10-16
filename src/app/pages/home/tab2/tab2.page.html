@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button value="inicio" checked>
+        Inicio
+      </ion-segment-button>
+      <ion-segment-button value="clase">
+        Mi clase
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<app-miclase></app-miclase>
+
+<app-logout-button (logoutClicked)="onLogoutClick()"></app-logout-button>

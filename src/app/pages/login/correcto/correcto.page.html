@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true">
+
+  <app-duoc-header></app-duoc-header>
+  <ion-card>
+    <ion-card-content>
+
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">correcto</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-text>
+        <ion-title id="recuperar-contrasena" style="text-align: center; margin-bottom: 20px;">Recuperar contraseña</ion-title>
+      </ion-text>
+
+      <style>
+        /* Define la animación de parpadeo */
+        @keyframes parpadeo {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        /* Aplica la animación de parpadeo al título */
+        #recuperar-contrasena {
+          animation: parpadeo 2s infinite;
+        }
+      </style>
+
+      <img src="assets/icon/correcto.png" alt="Logo DUOC" style="max-width: 100%; display: block; margin: 0 auto; margin-bottom: 20px;">
+
+      <ion-text>
+        <ion-title style="text-align: center; margin-bottom: 20px; color: green; animation: blink 2s infinite;">¡CORRECTO!</ion-title>
+      </ion-text>
+
+      <ion-text>
+        <ion-title style="text-align: center; color: rgb(252, 244, 244); margin-top: -20px;">Tu contraseña es: {{ userPassword }}</ion-title>
+      </ion-text>
+
+      <style>
+        /* Aplica la animación de parpadeo al label */
+        #contrasena-label {
+          animation: parpadeo 2s infinite;
+        }
+      </style>
+    </ion-card-content>
+</ion-card>
+
+<app-inicio-sesion></app-inicio-sesion>
+</ion-content>

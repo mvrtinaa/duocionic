@@ -1,0 +1,41 @@
+<ion-content [fullscreen]="true">
+
+  <app-duoc-header></app-duoc-header>
+  <div class="ion-padding"></div>
+  <ion-card>
+
+    <ion-card>
+
+      <ion-card-content>
+    
+        <ion-header collapse="condense">
+          <ion-toolbar>
+            <ion-title size="large">pregunta</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        
+        <ion-text>
+          <ion-title>Recuperar contraseña</ion-title>
+          <ion-title>Paso 2: <strong>Responde la pregunta secreta</strong></ion-title>
+        </ion-text>   
+      
+        <ion-item>
+          <ion-label position="stacked" style="color: white;">{{fraseDelUsuario}}</ion-label>
+          <ion-input [(ngModel)]="userResponse" placeholder="Ingrese su respuesta" style="color: white;"></ion-input>
+        </ion-item>
+        
+        <div class="ion-padding"></div>
+        <ion-button (click)="handleLogin()">
+          Recuperar contraseña
+        </ion-button>
+    
+      </ion-card-content>
+    
+    </ion-card>
+    
+
+  </ion-card>
+
+  <app-inicio-sesion></app-inicio-sesion>
+
+</ion-content>

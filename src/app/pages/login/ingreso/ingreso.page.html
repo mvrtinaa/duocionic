@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true">
+
+  <app-duoc-header></app-duoc-header>
+  <div class="ion-padding"></div>
+
+  <ion-card>
+
+    <ion-card-content>
+
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">ingreso</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-list class="ion-padding">
+        <ion-input
+          type="email"
+          fill="solid"
+          label="Correo"
+          labelPlacement="floating"
+          helperText="Ingresa tu correo"
+          errorText="Correo invalido"
+          [(ngModel)]="userEmail" 
+          email
+        ></ion-input>
+      
+        <ion-input
+          type="password"
+          fill="solid"
+          label="Contraseña"
+          labelPlacement="floating"
+          helperText="Ingresa tu contraseña"
+          errorText="Contraseña inválida"
+          [(ngModel)]="userPassword" 
+        ></ion-input>
+      </ion-list>
+
+      <ion-button expand="full" class="ion-margin" (click)="handleLogin()">
+        Ingresar
+      </ion-button>      
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-grid>
+    <ion-row class="ion-align-items-center" style="height: 10%;">
+        <ion-col class="ion-text-center">
+            <ion-button fill="clear" color="primary" routerLink="/correo">
+                Recuperar contraseña
+            </ion-button>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-content [fullscreen]="true" class="ion-text-center">
+  
+  <ion-card *ngIf="datosQRRecibidos" class="custom-card">
+    <ion-card-header>
+      Información de la Asignatura
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Sede:</strong> {{ datosQRRecibidos.sede }}</p>
+      <p><strong>ID Asignatura:</strong> {{ datosQRRecibidos.idAsignatura }}</p>
+      <p><strong>Sección:</strong> {{ datosQRRecibidos.seccion }}</p>
+      <p><strong>Nombre Asignatura:</strong> {{ datosQRRecibidos.nombreAsignatura }}</p>
+      <p><strong>Nombre Profesor:</strong> {{ datosQRRecibidos.nombreProfesor }}</p>
+      <p><strong>Día:</strong> {{ datosQRRecibidos.dia }}</p>
+      <p><strong>Bloque Inicio:</strong> {{ datosQRRecibidos.bloqueInicio }}</p>
+      <p><strong>Bloque Término:</strong> {{ datosQRRecibidos.bloqueTermino }}</p>
+      <p><strong>Hora Inicio:</strong> {{ datosQRRecibidos.horaInicio }}</p>
+      <p><strong>Hora Fin:</strong> {{ datosQRRecibidos.horaFin }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
