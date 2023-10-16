@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 import { DataBaseService } from 'src/app/services/data-base.service';
 import { showAlertDUOC } from 'src/app/model/Message';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab4',
   templateUrl: 'tab4.page.html',
@@ -15,7 +16,7 @@ export class Tab4Page implements OnInit{
   public usuario:any = new Usuario();
   repeticionPassword = '';
   listaUsuarios: Usuario[] = [];
-  constructor(private authService: AuthService, private bd: DataBaseService) { }
+  constructor(private authService: AuthService, private bd: DataBaseService, private router: Router) { }
 
   async ngOnInit() {
     this.bd.listaUsuarios.subscribe(usuarios => {
@@ -45,5 +46,14 @@ export class Tab4Page implements OnInit{
     this.bd.guardarUsuario(this.usuario);
     this.authService.setUsuarioAutenticado(this.usuario);
     showAlertDUOC('Sus datos fueron actualizados');
+    this.actualizarYRedirigir()
+
+  }
+  actualizarYRedirigir() {
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(['home/tabs/tab1'])
+    );
+    
+    window.location.href = url;
   }
 }
