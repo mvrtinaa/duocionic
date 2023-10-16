@@ -7,6 +7,7 @@ import { Usuario } from 'src/app/model/Usuario';
 import { APIClientService } from '../../services/apiclient.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { showAlertDUOC, showAlertError } from 'src/app/model/Message';
+import { ModalController } from '@ionic/angular';
 
 interface Publicacion {
   id: string,
@@ -39,13 +40,34 @@ export class ForoComponent implements OnInit  {
     contenido: ''};
   publicaciones: any;
 
-  constructor(private authService: AuthService, private api: APIClientService) { }
+  constructor(private authService: AuthService, private api: APIClientService, private modalController: ModalController) { }
 
   async ngOnInit() {
     const usu = await this.authService.leerUsuarioAutenticado();
     this.usuario = usu!;
     this.limpiarPublicacion();
   }
+
+  async mostrarModalEditar(pub: any) {
+    if (pub.correo !== this.usuario.correo) {
+      showAlertDUOC('Sólo puede editar las publicaciones a su nombre');
+      return;
+    }
+    
+    const modal = await this.modalController.create({
+      component: ForoComponent, // Suponiendo que tu componente actual tiene los campos para editar
+      componentProps: { publicacion: pub }
+    });
+    
+    await modal.present();
+  
+    const { data } = await modal.onWillDismiss();
+    if (data) {
+      this.setPublicacion(data.id, data.correo, data.nombre, data.apellido, data.titulo, data.contenido);
+      this.actualizarPublicacion();
+    }
+  }
+
 
   setPublicacion(id: string, correo: string, nombre: string, apellido: string, titulo: string, contenido: string) {
     this.publicacion.id = id;

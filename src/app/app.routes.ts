@@ -9,12 +9,6 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'ingreso',
-    loadComponent: () => import('./pages/ingreso/ingreso.page').then( m => m.IngresoPage),
-    canActivate: [loginGuard]
-  },
-
-  {
     path: 'home',
     loadChildren: () => import('./pages/home/tabs/tabs.module').then(m => m.TabsPageModule),
     canActivate: [authGuard]
@@ -38,6 +32,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/ingreso/ingreso.module').then( m => m.IngresoPageModule)
+    loadChildren: () => import('./pages/login/ingreso/ingreso.module').then( m => m.IngresoPageModule),
+    canActivate: [loginGuard]
   }
 ];

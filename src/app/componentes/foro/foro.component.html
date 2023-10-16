@@ -1,54 +1,52 @@
 <ion-content [fullscreen]="true">
   <a #topOfPage href="#topOfPage"></a>
+  
   <ion-card class="ion-card">
 
     <ion-card-header>
-      <ion-card-title>Ingresa tu publicación</ion-card-title>
+      <ion-card-title class="ion-text-center">Ingresa tu publicación</ion-card-title>
     </ion-card-header>
 
     <ion-item class="ion-padding-horizontal">
-      <ion-input [(ngModel)]="publicacion.titulo" label="Título" labelPlacement="floating"></ion-input>
+      <ion-input [(ngModel)]="publicacion.titulo" label="Título" labelPlacement="floating" placeholder="Escribe el título aquí"></ion-input>
     </ion-item>
 
     <ion-item class="ion-padding-horizontal">
-      <ion-textarea [(ngModel)]="publicacion.contenido" label="Contenido" labelPlacement="floating"></ion-textarea>
+      <ion-textarea [(ngModel)]="publicacion.contenido" label="Contenido" labelPlacement="floating" placeholder="Escribe el contenido aquí"></ion-textarea>
     </ion-item>
 
-    <div class="alinear-centro">
-      <ion-button (click)="limpiarPublicacion()">Limpiar</ion-button>
-      <ion-button (click)="guardarPublicacion()">Guardar</ion-button>
+    <div class="alinear-centro ion-padding">
+      <ion-button color="medium" (click)="limpiarPublicacion()">Limpiar</ion-button>
+      <ion-button color="primary" (click)="guardarPublicacion()">Guardar</ion-button>
     </div>
 
   </ion-card>
 
   <ion-card class="sin-bordes">
-    <ion-card-title class="con-padding-top">Publicaciones recientes</ion-card-title>
+    <ion-card-title class="con-padding-top ion-text-center">Publicaciones recientes</ion-card-title>
   </ion-card>
 
   <ion-card *ngFor="let pub of publicaciones">
-
     <ion-card-header>
       <h4>
-        #{{ pub.id }}: {{ pub.titulo }} <br>
-        Autor: {{ pub.nombre }} {{ pub.apellido }}
+        #{{ pub.id }}: {{ pub.titulo }}
+        <p class="ion-text-end">Autor: {{ pub.nombre }} {{ pub.apellido }}</p>
       </h4>
-      
     </ion-card-header>
-  
+
     <ion-card-content>
       {{ pub.contenido }}
     </ion-card-content>
 
-    <div class="alinear-derecha">
+    <div class="alinear-derecha ion-padding">
       <ion-button (click)="editarPublicacion(pub)">
-        <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon> Editar
       </ion-button>
 
-      <ion-button (click)="eliminarPublicacion(pub)">
-        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+
+      <ion-button fill="clear" size="small" color="danger" (click)="eliminarPublicacion(pub)">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon> Eliminar
       </ion-button>
     </div>
-
   </ion-card>
-
 </ion-content>
