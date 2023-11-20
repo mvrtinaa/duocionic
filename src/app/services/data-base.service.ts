@@ -29,6 +29,7 @@ export class DataBaseService {
   db!: SQLiteDBConnection;
   listaUsuarios: BehaviorSubject<Usuario[]> = new BehaviorSubject<Usuario[]>([]);
   listaUsuariosFueActualizada: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  datosQR: BehaviorSubject<string> = new BehaviorSubject('');
 
   constructor(private sqliteService: SQLiteService) { }
 
@@ -54,6 +55,8 @@ export class DataBaseService {
     usu.setUsuario('avalenzuela@duocuc.cl', 'qwer', 'Alberto', 'Valenzuela', 'Mi mejor amigo', 'juanito', 'N', false);
     await this.guardarUsuario(usu);
     usu.setUsuario('cfuentes@duocuc.cl', 'asdf', 'Carla', 'Fuentes', 'Dónde nació mamá', 'valparaiso', 'N', false);
+    await this.guardarUsuario(usu);
+    usu.setUsuario('admin@duocuc.cl', 'admin', 'Administrador', 'App', 'Dónde nació mamá', 'valparaiso', 'N', false);
     await this.guardarUsuario(usu);
   }
 

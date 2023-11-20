@@ -1,8 +1,5 @@
 import { AuthService } from 'src/app/services/auth.service';
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 import { DataBaseService } from 'src/app/services/data-base.service';
 import { showAlertDUOC } from 'src/app/model/Message';
@@ -16,6 +13,7 @@ export class Tab4Page implements OnInit{
   public usuario:any = new Usuario();
   repeticionPassword = '';
   listaUsuarios: Usuario[] = [];
+  
   constructor(private authService: AuthService, private bd: DataBaseService, private router: Router) { }
 
   async ngOnInit() {

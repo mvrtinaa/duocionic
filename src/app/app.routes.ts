@@ -34,5 +34,11 @@ export const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./pages/login/ingreso/ingreso.module').then( m => m.IngresoPageModule),
     canActivate: [loginGuard]
+  },
+  {
+    path: 'registrarse',
+    loadComponent: () => import('./pages/login/registrarse/registrarse.page').then( m => m.RegistrarsePage)
   }
+
+
 ];

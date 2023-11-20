@@ -6,9 +6,11 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../../../explore-container/explore-container.module';
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { LogoutButtonModule } from 'src/app/componentes/logout-button/logout-button.module';
+import { QRNativoModule } from 'src/app/componentes/qr-nativo/qr-nativo.module';
 
 // Importa QRModule
 import { QRModule } from 'src/app/componentes/qr/qr.module'; // Ajusta la ruta hacia el archivo qr.module
+
 
 @NgModule({
   imports: [
@@ -18,8 +20,9 @@ import { QRModule } from 'src/app/componentes/qr/qr.module'; // Ajusta la ruta h
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
     LogoutButtonModule,
-    QRModule // Añade QRModule a la lista de imports
+    QRModule, // Añade QRModule a la lista de imports
+    QRNativoModule 
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page],
 })
 export class Tab1PageModule {}
