@@ -50,13 +50,13 @@ export class RegistrarsePage implements OnInit {
       showAlertDUOC(`Las contraseñas escritas deben ser iguales.`);
       return;
     }
-    if (this.validarUsuarios()) {
+    if (this.validarUsuarios() && this.usuario.correo !== '' && this.usuario.password !== '' && this.usuario.nombre !== '' && this.usuario.apellido !== '' && this.usuario.rut !== '' && this.usuario.telefono !== '' && this.usuario.direccion !== '' && this.usuario.comuna !== '' && this.usuario.region !== '' && this.usuario.pais !== '' && this.usuario.fechaNacimiento !== '' && this.usuario.sexo !== '' && this.usuario.tipoUsuario !== '' && this.usuario.estado !== '' && this.usuario.foto !== '') { 
       this.bd.guardarUsuario(this.usuario);
       this.authService.setUsuarioAutenticado(this.usuario);
       showAlertDUOC('Sus usuario fue creado');
       this.actualizarYRedirigir()
     }
-    
+    showAlertDUOC(`Debe ingresar un valor para todos los campos.`);
 
   }
   actualizarYRedirigir() {

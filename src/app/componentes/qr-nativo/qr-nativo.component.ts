@@ -132,6 +132,8 @@ export class QrNativoComponent  implements OnInit {
     if (this.asistencia.verificarAsistenciaDesdeQR(datosQR)) {
       this.bd.datosQR.next(datosQR);
       this.qrCapturado.emit(datosQR);
+      const jsonData = JSON.parse(datosQR);
+      this.dataService.compartirDatosQR(jsonData)
     } else {
       showAlertDUOC('El código QR escaneado no corresponde a una Asistencia de DUOC '+ datosQR);
     }
