@@ -52,7 +52,6 @@ export class RegistrarsePage implements OnInit {
     }
     if (this.validarUsuarios() && this.usuario.correo !== '' && this.usuario.password !== '' && this.usuario.nombre !== '' && this.usuario.apellido !== '' && this.usuario.rut !== '' && this.usuario.telefono !== '' && this.usuario.direccion !== '' && this.usuario.comuna !== '' && this.usuario.region !== '' && this.usuario.pais !== '' && this.usuario.fechaNacimiento !== '' && this.usuario.sexo !== '' && this.usuario.tipoUsuario !== '' && this.usuario.estado !== '' && this.usuario.foto !== '') { 
       this.bd.guardarUsuario(this.usuario);
-      this.authService.setUsuarioAutenticado(this.usuario);
       showAlertDUOC('Sus usuario fue creado');
       this.actualizarYRedirigir()
     }
@@ -61,7 +60,7 @@ export class RegistrarsePage implements OnInit {
   }
   actualizarYRedirigir() {
     const url = this.router.serializeUrl(
-      this.router.createUrlTree(['home/tabs/tab1'])
+      this.router.createUrlTree(['login'])
     );
     
     window.location.href = url;
