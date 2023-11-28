@@ -12,6 +12,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SQLiteService } from 'src/app/services/sqlite.service';
 import { DuocHeaderComponentModule } from 'src/app/componentes/duoc-header/duoc-header.component.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Usuario } from 'src/app/model/Usuario';
 function suma(x: number, y: number) {
   return x + y;
 }
@@ -60,4 +61,33 @@ describe('Probar página de ingreso', () => {
     // Verifica que el método login del servicio AuthService haya sido llamado con los parámetros 'atorres@duocuc' y '1234'
     expect(authService.login).toHaveBeenCalledWith('atorres@duocuc.cl', '1234');
   });
+  it('Debería retornar un mensaje de error si el correo está vacío', () => {
+    const usuario = new Usuario();
+    expect(usuario.validarCorreo('')).toBe('Para ingresar al sistema debe ingresar el correo del usuario.');
+  });
+  it('Debería retornar un mensaje de error si la contraseña está vacía', () => {
+    const usuario = new Usuario();
+    expect(usuario.validarPassword('')).toBe('Para entrar al sistema debe ingresar la contraseña.');
+  });
+  it('Debería retornar un mensaje de error si el nombre está vacío', () => {
+    const usuario = new Usuario();
+    expect(usuario.validarNombre('')).toBe('Debe ingresar su nombre.');
+  });
+  it('Debería retornar un mensaje de error si el nombre está vacío', () => {
+    const usuario = new Usuario();
+    expect(usuario.validarNombre('')).toBe('Debe ingresar su nombre.');
+  });
+  it('Debería retornar un mensaje de error si el apellido está vacío', () => {
+    const usuario = new Usuario();
+    expect(usuario.validarApellido('')).toBe('Debe ingresar su nombre.');
+  });
+  it('Debería retornar un mensaje de error si la pregunta secreta está vacía', () => {
+    const usuario = new Usuario();
+    expect(usuario.validarPreguntaSecreta('')).toBe('Debe ingresar su pregunta secreta.');
+  });
+  it('Debería retornar un mensaje de error si la respuesta secreta está vacía', () => {
+    const usuario = new Usuario();
+    expect(usuario.validarRespuestaSecreta('')).toBe('Debe ingresar su respuesta secreta.');
+  });
+  
 });

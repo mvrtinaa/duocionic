@@ -71,4 +71,41 @@ describe('Verificar mi aplicación', () => {
       });
     });
   })
+
+  it(`Verificar componente mis datos con sus validaciones`, () => {
+    cy.visit('http://localhost:8100/login').then(() => {
+      cy.get('#correo').invoke('val', '');
+      cy.get('#correo').type('atorres@duocuc.cl');
+      cy.get('#password').invoke('val', '');
+      cy.get('#password').type('1234');
+      cy.contains('Ingresar').click();
+      
+      cy.visit('http://localhost:8100/home/tabs/tab4').then(()=>{
+        cy.wait(3000);
+        cy.contains('Actualizar mis datos').click({force: true});
+        
+        cy.contains('Aceptar').click();
+        cy.wait(3000);
+        cy.get('#Cerrar').click();
+      })
+    });
+    });
+    it(`Verificar cambios en mis datos`, () => {
+      cy.visit('http://localhost:8100/login').then(() => {
+        cy.get('#correo').invoke('val', '');
+        cy.get('#correo').type('atorres@duocuc.cl');
+        cy.get('#password').invoke('val', '');
+        cy.get('#password').type('1234');
+        cy.contains('Ingresar').click();
+        
+        cy.visit('http://localhost:8100/home/tabs/tab4').then(()=>{
+          cy.wait(3000);
+          cy.get('#repetir-contrasena-input input').invoke('val', '');
+          cy.get('#repetir-contrasena-input input').type('1234');
+          cy.contains('Actualizar mis datos').click({force: true});
+          cy.wait(3000);
+          cy.get('#Cerrar').click();
+        })
+      });
+      });
 });

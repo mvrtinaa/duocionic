@@ -5,6 +5,7 @@ import jsQR from 'jsqr';
 import { DataService } from 'src/app/data.service';
 import { AuthService } from './../../../services/auth.service';
 import { DataBaseService } from 'src/app/services/data-base.service';
+import { Router } from '@angular/router';
 
 
 
@@ -26,7 +27,7 @@ export class Tab1Page implements AfterViewInit {
   user: any;
   stateLoad: boolean = false;
 
-  constructor(private loadingController: LoadingController, private dataService: DataService, private authService: AuthService, private bd: DataBaseService) {
+  constructor(private router: Router, private loadingController: LoadingController, private dataService: DataService, private authService: AuthService, private bd: DataBaseService) {
     this.canvas = new ElementRef(null);
     this.video = new ElementRef(null);
   }
@@ -87,6 +88,7 @@ export class Tab1Page implements AfterViewInit {
             const jsonData = JSON.parse(this.datosQR);
             console.log('Datos del código QR como objeto JSON:', jsonData);
             this.dataService.compartirDatosQR(jsonData)
+            this.router.navigate(['home/tabs/tab2']);
             // Puedes utilizar jsonData como un objeto JavaScript
           } catch (error) {
             console.error('No se pudo analizar como JSON:', error);

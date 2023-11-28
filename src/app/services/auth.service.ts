@@ -39,7 +39,7 @@ export class AuthService {
             this.bd.actualizarSesionActiva(correo, 'S');
             this.storage.set(this.keyUsuario, usuario);
             this.usuarioAutenticado.next(usuario);
-            this.router.navigate(['home/tabs/tab1']);
+            this.actualizarYRedirigirLogin()
           } else {
             showToast(`El correo o la password son incorrectos`);
             this.router.navigate(['login']);
@@ -49,6 +49,23 @@ export class AuthService {
     });
   }
 
+  actualizarYRedirigirLogin() {
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(['home/tabs/tab1'])
+    );
+    
+    window.location.href = url;
+  }
+
+
+  actualizarYRedirigir() {
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(['login'])
+      
+    );
+    this.router.navigate(['login'])
+  }
+
   async logout() {
     this.leerUsuarioAutenticado().then((usuario) => {
       if (usuario) {
@@ -56,9 +73,9 @@ export class AuthService {
         this.bd.actualizarSesionActiva(usuario.correo, 'N');
         this.storage.remove(this.keyUsuario);
         this.usuarioAutenticado.next(null);
-        this.router.navigate(['login']);
+        this.actualizarYRedirigir()
       } else {
-        this.router.navigate(['login']);
+        this.actualizarYRedirigir()
       }
     })
 

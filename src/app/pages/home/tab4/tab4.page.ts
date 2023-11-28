@@ -54,4 +54,6 @@ export class Tab4Page implements OnInit{
     
     window.location.href = url;
   }
+  onLogoutClick(): void {
+    this.authService.logout();}
 }

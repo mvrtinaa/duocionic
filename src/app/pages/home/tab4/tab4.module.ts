@@ -15,7 +15,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ExploreContainerComponentModule,
     Tab4PageRoutingModule,
     LogoutButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    LogoutButtonModule
   ],
   declarations: [Tab4Page]
 })

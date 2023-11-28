@@ -1,61 +1,62 @@
-<div class="profile-container marco" *ngIf="usuario">
+<div class="profile-container marco" *ngIf="usuario" id="profile-container">
 
   <!-- Nombre -->
-  <ion-item>
+  <ion-item id="nombre-item">
     <ion-label position="floating">Nombre</ion-label>
-    <ion-input type="text" [(ngModel)]="usuario.nombre"></ion-input>
+    <ion-input type="text" [(ngModel)]="usuario.nombre" id="nombre-input"></ion-input>
     <ion-icon name="person-outline" slot="start"></ion-icon>
   </ion-item>
 
   <!-- Apellidos -->
-  <ion-item>
+  <ion-item id="apellidos-item">
     <ion-label position="floating">Apellidos</ion-label>
-    <ion-input type="text" [(ngModel)]="usuario.apellido"></ion-input>
+    <ion-input type="text" [(ngModel)]="usuario.apellido" id="apellidos-input"></ion-input>
     <ion-icon name="people-outline" slot="start"></ion-icon>
   </ion-item>
 
   <!-- Correo -->
-  <ion-item>
+  <ion-item id="correo-item">
     <ion-label position="floating">Correo</ion-label>
-    <ion-input type="text" [(ngModel)]="usuario.correo"></ion-input>
+    <ion-input type="text" [(ngModel)]="usuario.correo" id="correo-input"></ion-input>
     <ion-icon name="mail-outline" slot="start"></ion-icon>
   </ion-item>
 
   <!-- Pregunta Secreta -->
-  <ion-item>
+  <ion-item id="pregunta-secreta-item">
     <ion-label position="floating">Pregunta secreta</ion-label>
-    <ion-input type="text" [(ngModel)]="usuario.preguntaSecreta"></ion-input>
+    <ion-input type="text" [(ngModel)]="usuario.preguntaSecreta" id="pregunta-secreta-input"></ion-input>
     <ion-icon name="help-circle-outline" slot="start"></ion-icon>
   </ion-item>
 
   <!-- Respuesta Secreta -->
-  <ion-item>
+  <ion-item id="respuesta-secreta-item">
     <ion-label position="floating">Respuesta secreta</ion-label>
-    <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta"></ion-input>
+    <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" id="respuesta-secreta-input"></ion-input>
     <ion-icon name="help-circle-outline" slot="start"></ion-icon>
   </ion-item>
 
   <!-- Contraseña -->
-  <ion-item>
+  <ion-item id="contrasena-item">
     <ion-label position="floating">Contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="usuario.password"></ion-input>
+    <ion-input type="password" [(ngModel)]="usuario.password" id="contrasena-input"></ion-input>
     <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
   </ion-item>
 
   <!-- Repetir Contraseña -->
-  <ion-item>
+  <ion-item id="repetir-contrasena-item">
     <ion-label position="floating">Repetir contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="repeticionPassword"></ion-input>
+    <ion-input type="password" [(ngModel)]="repeticionPassword" id="repetir-contrasena-input"></ion-input>
     <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
   </ion-item>
 
   <!-- Botón de Actualizar -->
-  <div class="update-button-container">
-    <ion-button expand="full" (click)="actualizarPerfil()">Actualizar mis datos</ion-button>
+  <div class="update-button-container" id="update-button-container">
+    <ion-button expand="full" (click)="actualizarPerfil()" id="update-button">Actualizar mis datos</ion-button>
   </div>
 
 </div>
 
+<app-logout-button id="Cerrar" (logoutClicked)="onLogoutClick()"></app-logout-button>
 <style>
   .profile-container {
     padding: 1rem;

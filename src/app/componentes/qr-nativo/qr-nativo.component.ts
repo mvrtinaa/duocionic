@@ -15,6 +15,7 @@ import { Usuario } from 'src/app/model/Usuario';
 import { log, showAlertDUOC, showAlertYesNoDUOC } from 'src/app/model/Message';
 import { MessageEnum } from 'src/app/model/MessageEnum';
 import { DataService } from 'src/app/data.service';
+import { Router } from '@angular/router';
 
 
 
@@ -37,6 +38,7 @@ export class QrNativoComponent  implements OnInit {
   plataforma = 'web';
 
   constructor(
+    private router: Router,
     private authService: AuthService,
     private bd: DataBaseService,
     private sqliteService: SQLiteService,
@@ -45,6 +47,7 @@ export class QrNativoComponent  implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.plataforma = this.sqliteService.platform;
     this.authService.leerUsuarioAutenticado().then((usuario) => {
       this.usuario = usuario;
@@ -103,6 +106,7 @@ export class QrNativoComponent  implements OnInit {
           const jsonData = JSON.parse(qrCode.data);
           this.dataService.compartirDatosQR(jsonData)
           console.log(qrCode)
+          this.router.navigate(['home/tabs/tab2']);
         } else {
           showAlertDUOC('El código QR escaneado no corresponde a una Asistencia de DUOC');
         }
@@ -134,6 +138,7 @@ export class QrNativoComponent  implements OnInit {
       this.qrCapturado.emit(datosQR);
       const jsonData = JSON.parse(datosQR);
       this.dataService.compartirDatosQR(jsonData)
+      this.router.navigate(['home/tabs/tab2']);
     } else {
       showAlertDUOC('El código QR escaneado no corresponde a una Asistencia de DUOC '+ datosQR);
     }
