@@ -84,6 +84,8 @@ export class AuthService {
   async leerUsuarioAutenticado(): Promise<Usuario | undefined> {
     return this.storage.get(this.keyUsuario).then(usuario => usuario as Usuario);
   }
+
+  
   async setUsuarioAutenticado(usuario: Usuario) {
     this.storage.set(this.keyUsuario, usuario);
     this.usuarioAutenticado.next(usuario);

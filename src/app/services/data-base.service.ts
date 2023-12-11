@@ -5,6 +5,7 @@ import { Usuario } from '../model/Usuario';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { showAlert, showAlertDUOC, showAlertError } from '../model/Message';
 
+
 @Injectable()
 export class DataBaseService {
 
@@ -111,5 +112,6 @@ export class DataBaseService {
     const sql = 'UPDATE USUARIO SET sesionActiva=? WHERE correo=?';
     await this.db.run(sql, [sesionActiva, correo]);
     await this.leerUsuarios();
+    console.log("sql:"+sql)
   }
 }

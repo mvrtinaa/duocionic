@@ -43,6 +43,7 @@ export class Tab4Page implements OnInit{
     }
     this.bd.guardarUsuario(this.usuario);
     this.authService.setUsuarioAutenticado(this.usuario);
+    console.log("usuario mis datos", this.usuario);
     showAlertDUOC('Sus datos fueron actualizados');
     this.actualizarYRedirigir()
 

@@ -42,6 +42,7 @@ export class QRComponent  implements ViewWillEnter {
   ionViewWillEnter(): void {
     this.bd.listaUsuarios.subscribe(usuarios => {
       this.listaUsuarios = usuarios;
+      console.log("listaUsuarios ", this.listaUsuarios);
     });
     this.authService.leerUsuarioAutenticado().then((usuario) => {
       this.usuario = usuario;

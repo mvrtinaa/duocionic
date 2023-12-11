@@ -3,3 +3,12 @@
     font-size: 14px; // Cambia el tamaño de fuente según tus preferencias
     margin-top: 10px; // Opcional, agrega margen superior si es necesario
   }
+
+  ion-content{
+    --background: url('/assets/icon/ddduoc.jpg') 0 0/100% 100% no-repeat;
+      background-size: cover;
+    }
+
+    .backgruo{
+      background-color: black;
+    }
